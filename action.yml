@@ -1,0 +1,15 @@
+name: 'Hello world'
+description: 'Simple task for Hello World'
+inputs:
+  who-to-great:
+    description: 'Who to great'
+    required: true
+    default: 'World'
+outputs:
+  time:
+    description: 'The time when we greated you'
+runs:
+  using 'docker'
+  image: 'Dockerfile'
+  args:
+    - ${{ inputs.who-to-great }}
