@@ -1,7 +1,7 @@
 name: 'Hello world'
 description: 'Simple task for Hello World'
 inputs:
-  who-to-great:
+  who-to-greet:
     description: 'Who to great'
     required: true
     default: 'World'
@@ -12,4 +12,4 @@ runs:
   using: 'docker'
   image: 'Dockerfile.github'
   args:
-    - ${{ inputs.who-to-great }}
+    - ${{ inputs.who-to-greet }}
