@@ -1,13 +1,8 @@
-FROM node:alpine as builder
+# Container image that runs your code
+FROM alpine
 
-WORKDIR '/app'
+# Copies your code file from your action repository to the filesystem path `/` of the container
+COPY entrypoint.sh /entrypoint.sh
 
-COPY package.json .
-RUN npm install
-COPY . .
-
-RUN npm run build # it will generate files in /app/build folder
-
-FROM nginx
-EXPOSE 80
-COPY --from=builder /app/build /usr/share/nginx/html
+# Code file to execute when the docker container starts up (`entrypoint.sh`)
+ENTRYPOINT ["/entrypoint.sh"]
