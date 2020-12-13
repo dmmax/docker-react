@@ -9,7 +9,7 @@ outputs:
   time:
     description: 'The time when we greated you'
 runs:
-  using 'docker'
+  using: 'docker'
   image: 'Dockerfile.github'
   args:
     - ${{ inputs.who-to-great }}
